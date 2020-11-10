@@ -1,0 +1,51 @@
+{
+	"data": {
+		"logoImage": {
+			"image": "@/assets/logo.png",
+			"description": "Real Estate"
+		},
+		"addProperty": {
+			"buttonName": "Add Property",
+			"icon": "plus"
+		},
+		"pageNavigationList": [
+			{
+				"name": "Home",
+				"link": "#",
+				"description": "Home",
+				"active": true
+			},
+			{
+				"name": "About Us",
+				"link": "#",
+				"description": "About Us",
+				"active": false
+			},
+			{
+				"name": "Contact Us",
+				"link": "#",
+				"description": "Contact Us",
+				"active": false
+			},
+			{
+				"name": "Property",
+				"link": "#",
+				"description": "Property",
+				"active": false
+			},
+			{
+				"name": "Listing",
+				"link": "#",
+				"description": "Listing",
+				"active": false
+			},
+			{
+				"name": "Login",
+				"link": "#",
+				"description": "Login",
+				"active": false,
+				"icon": "user"
+			}
+		]
+	}
+}
