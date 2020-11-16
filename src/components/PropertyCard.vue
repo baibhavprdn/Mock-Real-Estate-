@@ -1,9 +1,13 @@
 <template>
 	<div class="uk-card uk-card-default uk-card-hover property-card">
-		<div class="img-wrapper">
+		<div
+			class="img-wrapper"
+			v-on:click="showPropertyDetails()"
+		>
 			<img
 				:src="property.Img"
 				alt="House for sale"
+				:class="{portrait:portrait}"
 			/>
 			<div class="tags-wrapper">
 				<span
@@ -18,7 +22,7 @@
 						href=""
 						icon="heart"
 						ratio="1.3"
-						v-on:click="toggleFavourite()"
+						v-on:click.stop="toggleFavourite()"
 						v-bind:class="{favourite:property.favourite}"
 					></vk-icon>
 				</div>
@@ -34,7 +38,10 @@
 			</div>
 		</div>
 		<div class="card-content">
-			<h4 class="title">{{property.title}}</h4>
+			<h3
+				class="title"
+				v-on:click="showPropertyDetails()"
+			>{{property.title}}</h3>
 			<p class="subheader">
 				<!-- <vk-icon icon="location" ratio="0.8"></vk-icon> -->
 				{{property.location}}
@@ -64,7 +71,9 @@ export default {
 	props: {
 		property: Object,
 	},
-	data: () => ({}),
+	data: () => ({
+		portrait: false,
+	}),
 	computed: {
 		priceValue: function () {
 			return (
@@ -86,28 +95,48 @@ export default {
 				? "For Sale"
 				: "For Rent";
 		},
-		calculatedDate(){
-			let adPostedDate=new Date(this.property.adPostedDate);
-			let dateDifference=Date.now()-adPostedDate;
+		calculatedDate() {
+			let adPostedDate = new Date(this.property.adPostedDate);
+			let dateDifference = Date.now() - adPostedDate;
 			let dateDifferenceStr;
-			dateDifference=parseInt(dateDifference/(1000*60*60*24))
+			dateDifference = parseInt(dateDifference / (1000 * 60 * 60 * 24));
 			// in days
-			if(dateDifference>365){
-				dateDifferenceStr= parseInt(dateDifference/365);
-				dateDifferenceStr=dateDifferenceStr>1?dateDifferenceStr+' years ago':dateDifferenceStr+' year ago';
-			}
-			else if(dateDifference>30){
-				dateDifferenceStr= parseInt(dateDifference/30);
-				dateDifferenceStr=dateDifferenceStr>1?dateDifferenceStr+' months ago':dateDifferenceStr+' month ago';
+			if (dateDifference > 365) {
+				dateDifferenceStr = parseInt(dateDifference / 365);
+				dateDifferenceStr =
+					dateDifferenceStr > 1
+						? dateDifferenceStr + " years ago"
+						: dateDifferenceStr + " year ago";
+			} else if (dateDifference > 30) {
+				dateDifferenceStr = parseInt(dateDifference / 30);
+				dateDifferenceStr =
+					dateDifferenceStr > 1
+						? dateDifferenceStr + " months ago"
+						: dateDifferenceStr + " month ago";
 			}
 			return dateDifferenceStr;
-		}
+		},
 	},
-	methods:{
-		toggleFavourite(){
-			this.property.favourite=!this.property.favourite;
-		}
-	}
+	mounted() {
+		this.imageOrientation(this.property.Img);
+	},
+	methods: {
+		toggleFavourite() {
+			this.property.favourite = !this.property.favourite;
+		},
+		showPropertyDetails() {
+			console.log("router link change here");
+			this.$router.push({ name: "Property detail", params: this.property });
+		},
+		imageOrientation(src) {
+			let img = new Image();
+			img.src = src;
+
+			if (img.naturalWidth < img.naturalHeight) {
+				this.portrait = true;
+			}
+		},
+	},
 };
 </script>
 
@@ -119,11 +148,17 @@ export default {
 
 	.img-wrapper {
 		position: relative;
-		height:18rem;
+		height: 18rem;
+		overflow: hidden;
 
-		img{
-			height:100%;
-			object-fit:cover;
+		img {
+			height: 100%;
+			object-fit: cover;
+		}
+
+		img.portrait {
+			width: 100%;
+			object-fit: cover;
 		}
 	}
 
@@ -151,20 +186,23 @@ export default {
 			color: #fff;
 		}
 
-		.uk-icon svg[meta="vk-icons-heart"] path {
-			transition:all 0.2s ease-in;
-			&:hover{
-				cursor:pointer;
+		.uk-icon svg[meta="vk-icons-heart"] {
+			&:hover {
+				cursor: pointer;
 			}
+		}
+
+		.uk-icon svg[meta="vk-icons-heart"] path {
+			transition: all 0.2s ease-in;
 		}
 
 		.uk-icon.favourite svg[meta="vk-icons-heart"] path {
 			fill: $rent;
-			color:$rent;
+			color: $rent;
 		}
 
-		.calendar{
-			color:#fff;
+		.calendar {
+			color: #fff;
 		}
 	}
 
@@ -182,17 +220,27 @@ export default {
 	}
 
 	.card-content {
-		padding: 0.5rem;
+		padding: 1rem;
 
+		h3,
 		h4,
 		h5,
 		p {
 			margin: 0;
 		}
 
+		h3 {
+			font-size: 1.4rem;
+			margin-bottom: 0.5rem;
+		}
 		.title {
 			font-weight: 500;
 			color: $card-title;
+			&:hover {
+				cursor: pointer;
+				text-decoration: underline;
+				color: lighten($card-title, 10%);
+			}
 		}
 
 		.subheader {

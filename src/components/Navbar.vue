@@ -9,14 +9,17 @@
 					class="uk-responsive-height"
 				/>
 			</vk-navbar-logo>
-			<vk-navbar-nav-item
+			<router-link
 				class="nav-item"
 				v-for="pageNavigation in pageNavigationList"
 				:key="pageNavigation.name"
 				:title="pageNavigation.name"
 				:icon="pageNavigation.icon"
-			>{{ pageNavigation.name }}
-			</vk-navbar-nav-item>
+				:to="pageNavigation.route"
+				tag="li"
+			>
+				{{ pageNavigation.name }}
+			</router-link>
 			<vk-navbar-item>
 				<vk-button
 					href="#"
@@ -46,43 +49,48 @@ export default {
 		pageNavigationList: [
 			{
 				name: "Home",
-				link: "#",
+				route: "/",
 				description: "Home",
 				active: true,
 			},
 			{
 				name: "About Us",
-				link: "#",
+				route: "/about",
 				description: "About Us",
 				active: false,
 			},
 			{
 				name: "Contact Us",
-				link: "#",
+				route: "/contact",
 				description: "Contact Us",
 				active: false,
 			},
 			{
 				name: "Property",
-				link: "#",
+				route: "/contact",
 				description: "Property",
 				active: false,
 			},
 			{
 				name: "Listing",
-				link: "#",
+				route: "/contact",
 				description: "Listing",
 				active: false,
 			},
 			{
 				name: "Login",
-				link: "#",
+				route: "/contact",
 				description: "Login",
 				active: false,
 				icon: "user",
 			},
 		],
 	}),
+	methods: {
+		addPropertyMethod: function () {
+			alert("New property to be added here");
+		},
+	},
 };
 </script>
 
@@ -95,14 +103,29 @@ nav {
 	background-color: rgba(0, 0, 0, 0.3);
 }
 
+.uk-navbar-container:not(.uk-navbar-transparent).inner-nav {
+	background-color: #fff;
+}
+
 .nav-item {
-	a {
-		color: white;
-		font-size: 1.2rem;
-		text-transform: capitalize;
-		&:hover {
-			color: $primary;
-		}
+	color: white;
+	font-size: 1.2rem;
+	text-transform: capitalize;
+	align-self:center;
+	&:hover {
+		color: $primary;
+		cursor:pointer;
+	}
+}
+
+.inner-nav .nav-item{
+	color:#000;
+	font-size: 1.2rem;
+	text-transform: capitalize;
+	align-self:center;
+	&:hover{
+		color:$primary;
+		cursor:pointer;
 	}
 }
 
