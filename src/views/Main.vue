@@ -52,7 +52,7 @@
 import Navbar from "@/components/Navbar.vue"
 import PropertyCard from "@/components/PropertyCard.vue"
 import Footer from "@/components/Footer.vue"
-import { mapGetters } from "vuex";
+import { mapGetters } from "vuex"
 
 export default {
 	name: "Home",
