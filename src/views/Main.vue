@@ -7,7 +7,7 @@
 				<h1 class="text-white">
 					Search and find your <span class="primary">dream house</span>
 				</h1>
-				<div class="text-white">search box here</div>
+				<!-- <div class="text-white">search box here</div> -->
 				<div class="filter-column-wrapper">
 					<h3 class="text-white">Browse property types</h3>
 					<div class="filter-columns">
@@ -49,9 +49,9 @@
 
 <script>
 // @ is an alias to /src
-import Navbar from "@/components/Navbar.vue";	
+import Navbar from "@/components/Navbar.vue";
 import PropertyCard from "@/components/PropertyCard.vue";
-import {mapGetters} from 'vuex';
+import { mapGetters } from "vuex";
 
 export default {
 	name: "Home",
@@ -80,19 +80,11 @@ export default {
 		],
 	}),
 	created() {
-		this.$store.dispatch('getPropertyList');
+		this.$store.dispatch("getPropertyList");
 	},
-	methods:{
-		changeFlavour(event){
-			this.$store.commit('change',event.target.value);
-		}
+	computed: {
+		...mapGetters(["propertyList"]),
 	},
-	computed:{
-		...mapGetters([
-			'propertyList'
-		])
-	}
-
 };
 </script>
 
@@ -126,8 +118,12 @@ export default {
 			display: flex;
 			// grid-template-columns:repeat(4,1fr);
 			justify-content: space-between;
-			width: 70%;
 			margin: 0 auto;
+			flex-wrap: wrap;
+
+			@media (min-width:768px){
+				width:70%;
+			}
 		}
 
 		.filter-item-icon {
@@ -150,6 +146,14 @@ export default {
 	.text-white {
 		color: #fff;
 	}
+
+	@media(max-width:768px){
+		h1{
+			font-size:1.7rem;
+		}
+
+		
+	}
 }
 
 #property-list {
@@ -169,8 +173,14 @@ export default {
 	#property-list-grid {
 		margin-top: 2%;
 		display: grid;
-		grid-template-columns: repeat(3, 1fr);
+		grid-template-columns: repeat(auto-fit, minMax(300px, 1fr));
 		grid-gap: 1rem;
+
+		@media (min-width: 900px) {
+			#property-list-grid {
+				grid-template-columns: repeat(auto-fit, minMax(350px, 1fr));
+			}
+		}
 	}
 }
 </style>

@@ -1,6 +1,6 @@
 <template>
 	<vk-navbar class="custom-padding-sides">
-		<vk-navbar-nav class="uk-width-expand uk-flex-between">
+		<vk-navbar-nav class="uk-width-expand uk-flex-between desktop">
 			<vk-navbar-logo>
 				<img
 					:src="require('@/assets/logo.png')"
@@ -30,10 +30,51 @@
 				</vk-button>
 			</vk-navbar-item>
 		</vk-navbar-nav>
+
+		<vk-navbar-nav class="mobile">
+			<vk-offcanvas-content>
+				<vk-navbar-toggle @click="mobileNav=true"></vk-navbar-toggle>
+
+				<vk-offcanvas
+					overlay
+					:show.sync="mobileNav"
+				>
+					<vk-offcanvas-bar class="uk-flex uk-flex-column">
+						<vk-nav
+							type="primary"
+							center
+							class="uk-margin-auto-vertical"
+						>
+							<!-- <vk-nav-item-header title="Header"></vk-nav-item-header> -->
+
+							<router-link
+								tag="li"
+								class="nav-item"
+								v-for="pageNavigation in pageNavigationList"
+								:key="pageNavigation.name"
+								:title="pageNavigation.name"
+								:icon="pageNavigation.icon"
+								:to="pageNavigation.route"
+							>
+								{{ pageNavigation.name }}
+							</router-link>
+							<!-- <vk-nav-item
+								title="Item"
+								icon="thumbnails"
+							></vk-nav-item> -->
+						</vk-nav>
+					</vk-offcanvas-bar>
+				</vk-offcanvas>
+
+			</vk-offcanvas-content>
+
+		</vk-navbar-nav>
 	</vk-navbar>
 </template>
 
 <script>
+import { mapGetters } from "vuex";
+
 export default {
 	name: "Navbar",
 	components: {},
@@ -46,57 +87,22 @@ export default {
 			buttonName: "Add Property",
 			icon: "plus",
 		},
-		pageNavigationList: [
-			{
-				name: "Home",
-				route: "/",
-				description: "Home",
-				active: true,
-			},
-			{
-				name: "About Us",
-				route: "/about",
-				description: "About Us",
-				active: false,
-			},
-			{
-				name: "Contact Us",
-				route: "/contact",
-				description: "Contact Us",
-				active: false,
-			},
-			{
-				name: "Property",
-				route: "/contact",
-				description: "Property",
-				active: false,
-			},
-			{
-				name: "Listing",
-				route: "/contact",
-				description: "Listing",
-				active: false,
-			},
-			{
-				name: "Login",
-				route: "/contact",
-				description: "Login",
-				active: false,
-				icon: "user",
-			},
-		],
+		mobileNav: false,
 	}),
 	methods: {
 		addPropertyMethod: function () {
 			alert("New property to be added here");
 		},
 	},
+	computed: {
+		...mapGetters(["pageNavigationList"]),
+	},
 };
 </script>
 
 <style lang="scss" scoped>
 nav {
-	height: 7rem;
+	height: 4rem;
 }
 
 .uk-navbar-container:not(.uk-navbar-transparent) {
@@ -107,25 +113,38 @@ nav {
 	background-color: #fff;
 }
 
+.desktop {
+	display: none;
+}
+
+.mobile {
+	display: flex;
+}
+
+.uk-navbar-toggle {
+	height: inherit;
+}
+
 .nav-item {
-	color: white;
-	font-size: 1.2rem;
+	color: #999;
+	font-size: 1.7rem;
+	margin:0.5rem 0;
 	text-transform: capitalize;
-	align-self:center;
+	align-self: center;
 	&:hover {
 		color: $primary;
-		cursor:pointer;
+		cursor: pointer;
 	}
 }
 
-.inner-nav .nav-item{
-	color:#000;
+.inner-nav .nav-item {
+	color: #000;
 	font-size: 1.2rem;
 	text-transform: capitalize;
-	align-self:center;
-	&:hover{
-		color:$primary;
-		cursor:pointer;
+	align-self: center;
+	&:hover {
+		color: $primary;
+		cursor: pointer;
 	}
 }
 
@@ -141,5 +160,35 @@ nav {
 	&:hover {
 		background-color: darken($primary, 5%);
 	}
+}
+
+@media (min-width: 768px) {
+	.uk-navbar-toggle {
+		height: 80px;
+	}
+
+	nav {
+		height: 7rem;
+	}
+
+	.desktop {
+		display: flex;
+	}
+
+	.mobile {
+		display: none;
+	}
+
+	.nav-item {
+	color: white;
+	font-size: 1.2rem;
+	text-transform: capitalize;
+	align-self: center;
+	&:hover {
+		color: $primary;
+		cursor: pointer;
+	}
+}
+
 }
 </style>

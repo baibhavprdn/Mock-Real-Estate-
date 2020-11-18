@@ -6,7 +6,46 @@ Vue.use(Vuex);
 export const store= new Vuex.Store({
 	state:{
 		flavor:'',
-		propertyList:[]
+		propertyList:[],
+		pageNavigationList: [
+			{
+				name: "Home",
+				route: "/",
+				description: "Home",
+				active: true,
+			},
+			{
+				name: "About Us",
+				route: "/about",
+				description: "About Us",
+				active: false,
+			},
+			{
+				name: "Contact Us",
+				route: "/contact",
+				description: "Contact Us",
+				active: false,
+			},
+			{
+				name: "Property",
+				route: "/contact",
+				description: "Property",
+				active: false,
+			},
+			{
+				name: "Listing",
+				route: "/contact",
+				description: "Listing",
+				active: false,
+			},
+			{
+				name: "Login",
+				route: "/contact",
+				description: "Login",
+				active: false,
+				icon: "user",
+			},
+		],
 	},
 	mutations:{
 		change(state,flavor){
@@ -29,6 +68,7 @@ export const store= new Vuex.Store({
 	},
 	getters:{
 		flavor:state=>state.flavor,
-		propertyList:state=>state.propertyList
+		propertyList:state=>state.propertyList,
+		pageNavigationList:state=>state.pageNavigationList
 	}
 });

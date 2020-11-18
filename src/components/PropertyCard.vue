@@ -43,7 +43,10 @@
 				v-on:click="showPropertyDetails()"
 			>{{property.title}}</h3>
 			<p class="subheader">
-				<!-- <vk-icon icon="location" ratio="0.8"></vk-icon> -->
+				<vk-icon
+					icon="location"
+					ratio="0.8"
+				></vk-icon>
 				{{property.location}}
 			</p>
 			<h4 class="price">{{priceValue}} </h4>
@@ -259,12 +262,21 @@ export default {
 
 		.agent-info {
 			display: flex;
+			flex-wrap: wrap;
+			@media (min-width: 768px) {
+				flex-wrap: nowrap;
+			}
 		}
 
 		.agent-info div {
 			display: flex;
 			align-items: center;
-			margin-right: 2rem;
+			margin-bottom: 0.5rem;
+
+			@media (min-width: 768px) {
+				margin-right: 2rem;
+				margin-bottom: 0;
+			}
 		}
 	}
 }
