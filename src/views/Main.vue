@@ -49,9 +49,8 @@
 </template>
 
 <script>
-// @ is an alias to /src
-import Navbar from "@/components/Navbar.vue";
-import PropertyCard from "@/components/PropertyCard.vue";
+import Navbar from "@/components/Navbar.vue"
+import PropertyCard from "@/components/PropertyCard.vue"
 import Footer from "@/components/Footer.vue"
 import { mapGetters } from "vuex";
 
