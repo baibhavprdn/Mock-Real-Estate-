@@ -37,15 +37,19 @@ export const store= new Vuex.Store({
 				route: "/contact",
 				description: "Listing",
 				active: false,
-			},
-			{
-				name: "Login",
-				route: "/contact",
-				description: "Login",
-				active: false,
-				icon: "user",
-			},
+			}
+			// {
+			// 	name: "Login",
+			// 	route: "/contact",
+			// 	description: "Login",
+			// 	active: false,
+			// 	icon: "user",
+			// },
 		],
+		logoImage: {
+			image: "@/assets/logo.png",
+			description: "Real Estate",
+		}
 	},
 	mutations:{
 		change(state,flavor){
@@ -57,7 +61,6 @@ export const store= new Vuex.Store({
 	},
 	actions:{
 		getPropertyList({commit }){
-			console.log('action fired');
 			this._vm.$http
 				.get("/api/propertyList")
 				.then((result) => {
@@ -69,6 +72,7 @@ export const store= new Vuex.Store({
 	getters:{
 		flavor:state=>state.flavor,
 		propertyList:state=>state.propertyList,
-		pageNavigationList:state=>state.pageNavigationList
+		pageNavigationList:state=>state.pageNavigationList,
+		logoImage:state=>state.logoImage
 	}
 });

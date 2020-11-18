@@ -4,7 +4,7 @@
 			<vk-navbar-logo>
 				<img
 					:src="require('@/assets/logo.png')"
-					:alt="logoImage.imageDescription"
+					:alt="logoImage.description"
 					uk-img
 					class="uk-responsive-height"
 				/>
@@ -79,10 +79,6 @@ export default {
 	name: "Navbar",
 	components: {},
 	data: () => ({
-		logoImage: {
-			image: "@/assets/logo.png",
-			description: "Real Estate",
-		},
 		addProperty: {
 			buttonName: "Add Property",
 			icon: "plus",
@@ -95,7 +91,7 @@ export default {
 		},
 	},
 	computed: {
-		...mapGetters(["pageNavigationList"]),
+		...mapGetters(["pageNavigationList","logoImage"]),
 	},
 };
 </script>

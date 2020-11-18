@@ -44,6 +44,7 @@
 				/>
 			</div>
 		</section>
+		<Footer/>
 	</div>
 </template>
 
@@ -51,6 +52,7 @@
 // @ is an alias to /src
 import Navbar from "@/components/Navbar.vue";
 import PropertyCard from "@/components/PropertyCard.vue";
+import Footer from "@/components/Footer.vue"
 import { mapGetters } from "vuex";
 
 export default {
@@ -58,6 +60,7 @@ export default {
 	components: {
 		Navbar,
 		PropertyCard,
+		Footer
 	},
 	data: () => ({
 		filterItems: [

@@ -15,16 +15,18 @@
 				</div>
 			</vk-grid>
 		</section>
+		<Footer/>
 	</div>
 </template>
 
 <script>
-import Navbar from "@/components/Navbar.vue";
+import Navbar from "@/components/Navbar";
+import Footer from "@/components/Footer"
 
 export default {
 	name: "Details",
 	components: {
-		Navbar,
+		Navbar, Footer
 	},
 	data: () => ({
 		propertyDetail: {},
