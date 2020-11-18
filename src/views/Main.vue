@@ -49,8 +49,9 @@
 
 <script>
 // @ is an alias to /src
-import Navbar from "@/components/Navbar.vue";
+import Navbar from "@/components/Navbar.vue";	
 import PropertyCard from "@/components/PropertyCard.vue";
+import {mapGetters} from 'vuex';
 
 export default {
 	name: "Home",
@@ -77,14 +78,21 @@ export default {
 				name: "Housing",
 			},
 		],
-		propertyList: [
-		],
 	}),
-	created(){
-		this.$http.get('/api/propertyList').then(result=>{
-			this.propertyList=result.data;
-		})
+	created() {
+		this.$store.dispatch('getPropertyList');
+	},
+	methods:{
+		changeFlavour(event){
+			this.$store.commit('change',event.target.value);
+		}
+	},
+	computed:{
+		...mapGetters([
+			'propertyList'
+		])
 	}
+
 };
 </script>
 
@@ -160,9 +168,9 @@ export default {
 
 	#property-list-grid {
 		margin-top: 2%;
-		display:grid;
-		grid-template-columns:repeat(3,1fr);
-		grid-gap:1rem;
+		display: grid;
+		grid-template-columns: repeat(3, 1fr);
+		grid-gap: 1rem;
 	}
 }
 </style>

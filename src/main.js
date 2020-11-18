@@ -5,9 +5,7 @@ import Vuikit from 'vuikit';
 import VuikitIcons from '@vuikit/icons';
 import axios from 'axios';
 import {Server} from 'miragejs';
-
-// get the mock data
-// import { propertyList } from '@/data/propertiesData.js';
+import {store} from '@/store/store.js';
 
 import '@vuikit/theme';
 
@@ -17,12 +15,14 @@ Vue.use(axios);
 
 Vue.config.productionTip = false; 
 
+// in order to use this.$http in all components
 Vue.prototype.$http=axios;
 
 const server = new Server({
   timing:500
 });
 
+//using miragejs to handle api calls
 server.db.loadData({
   propertyList: [
     {
@@ -98,7 +98,7 @@ server.db.loadData({
       favourite: false
     }
   ]
-})
+});
 
 server.get('/api/propertyList',(schema)=>{
   return schema.db.propertyList;
@@ -106,5 +106,7 @@ server.get('/api/propertyList',(schema)=>{
 
 new Vue({
   router,
+  //allows using store in all components
+  store,
   render: h => h(App)
 }).$mount('#app');
