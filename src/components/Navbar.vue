@@ -162,7 +162,7 @@ nav {
 	}
 }
 
-@media (min-width: 768px) {
+@media (min-width: 900px) {
 	.uk-navbar-toggle {
 		height: 80px;
 	}
