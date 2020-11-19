@@ -2,12 +2,12 @@
 	<div class="uk-card uk-card-default uk-card-hover property-card">
 		<div
 			class="img-wrapper"
-			v-on:click="showPropertyDetails()"
+			v-on:click="showPropertyDetails()" 
 		>
 			<img
 				:src="property.Img"
 				alt="House for sale"
-				:class="{portrait:portrait}"
+				:class="{portrait:portrait}" @load="imageOrientation(property.Img)"
 			/>
 			<div class="tags-wrapper">
 				<span
@@ -119,9 +119,6 @@ export default {
 			}
 			return dateDifferenceStr;
 		},
-	},
-	mounted() {
-		this.imageOrientation(this.property.Img);
 	},
 	methods: {
 		toggleFavourite() {
