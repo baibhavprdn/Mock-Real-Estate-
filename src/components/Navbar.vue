@@ -22,7 +22,7 @@
 			</router-link>
 			<li
 				class="nav-item"
-				@click="openNetlifyLoginModal()"
+				@click="triggerNetlifyIdentityAction('login')"
 			>Login</li>
 			<vk-navbar-item>
 				<vk-button
@@ -79,7 +79,7 @@
 <script>
 import netlifyIdentity from "netlify-identity-widget";
 
-import { mapGetters } from "vuex";
+import { mapGetters, mapActions } from "vuex";
 
 netlifyIdentity.init({});
 
@@ -95,29 +95,41 @@ export default {
 		currentUser: null,
 	}),
 	methods: {
+		...mapActions("user", {
+			updateUser: "updateUser",
+		}),
 		addPropertyMethod: function () {
 			alert("New property to be added here");
 		},
-		openNetlifyLoginModal: function () {
-			netlifyIdentity.open("login");
-			netlifyIdentity.on("login", (user) => {
-				this.currentUser = {
-					username: user.user_metadata.full_name,
-					email: user.email,
-					access_token: user.token.access_token,
-					expires_at: user.token.expires_at,
-					refresh_token: user.token.refresh_token,
-					token_type: user.token.token_type,
-				};
+		triggerNetlifyIdentityAction(action) {
+			if (action == "login" || action == "signup") {
+				netlifyIdentity.open(action);
+				netlifyIdentity.on(action, (user) => {
+					this.currentUser = {
+						username: user.user_metadata.full_name,
+						email: user.email,
+						access_token: user.token.access_token,
+						expires_at: user.token.expires_at,
+						refresh_token: user.token.refresh_token,
+						token_type: user.token.token_type,
+					};
+					this.updateUser({
+						currentUser: this.currentUser,
+					});
+					netlifyIdentity.close();
+				});
+			} else if (action == "logout") {
+				this.currentUser = null;
 				this.updateUser({
 					currentUser: this.currentUser,
 				});
-				netlifyIdentity.close();
-			});
+				netlifyIdentity.logout();
+				this.$router.push({ name: "Home" });
+			}
 		},
 	},
 	computed: {
-		...mapGetters("propertyStore",["pageNavigationList", "logoImage"]),
+		...mapGetters("propertyStore", ["pageNavigationList", "logoImage"]),
 	},
 };
 </script>

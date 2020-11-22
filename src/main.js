@@ -104,6 +104,9 @@ server.get('/api/propertyList',(schema)=>{
   return schema.db.propertyList;
 });
 
+// passthrough any netlify requests from mirage
+server.passthrough('https://bprdnvuerealestate.netlify.app/.netlify/identity/**');
+
 new Vue({
   router,
   //allows using store in all components
