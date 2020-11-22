@@ -26,10 +26,9 @@ const routes = [
     component: About
   },
   {
-    path:'/details',
+    path:'/details/:id',
     name:'Property detail',
     component: Details,
-    props:true
   }
 ];
 

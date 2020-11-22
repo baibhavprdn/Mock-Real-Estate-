@@ -32,7 +32,8 @@ export default {
 		propertyDetail: {},
 	}),
 	created() {
-		this.propertyDetail = this.$route.params;
+		debugger;
+		this.propertyDetail=this.$store.getters['propertyStore/getPropertybyId'](this.$route.params.id);
 	},
 };
 </script>

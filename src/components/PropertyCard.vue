@@ -125,8 +125,7 @@ export default {
 			this.property.favourite = !this.property.favourite;
 		},
 		showPropertyDetails() {
-			console.log("router link change here");
-			this.$router.push({ name: "Property detail", params: this.property });
+			this.$router.push({ path: `/details/${this.property.id}`});
 		},
 		imageOrientation(src) {
 			let img = new Image();

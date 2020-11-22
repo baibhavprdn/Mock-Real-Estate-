@@ -70,7 +70,11 @@ const getters = {
 	flavor: state => state.flavor,
 	propertyList: state => state.propertyList,
 	pageNavigationList: state => state.pageNavigationList,
-	logoImage: state => state.logoImage
+	logoImage: state => state.logoImage,
+	getPropertybyId: (state) => (id) => {
+		return state.propertyList.find(todo => todo.id === id);
+	}
+
 };
 
 const propertyStore= {
