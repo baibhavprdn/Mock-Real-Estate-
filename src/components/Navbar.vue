@@ -19,8 +19,11 @@
 				tag="li"
 			>
 				{{ pageNavigation.name }}
-			</router-link>	
-			<li class="nav-item" @click="openNetlifyLoginModal()">Login</li>
+			</router-link>
+			<li
+				class="nav-item"
+				@click="openNetlifyLoginModal()"
+			>Login</li>
 			<vk-navbar-item>
 				<vk-button
 					href="#"
@@ -78,9 +81,7 @@ import netlifyIdentity from "netlify-identity-widget";
 
 import { mapGetters } from "vuex";
 
-netlifyIdentity.init({
-  
-});
+netlifyIdentity.init({});
 
 export default {
 	name: "Navbar",
@@ -91,32 +92,32 @@ export default {
 			icon: "plus",
 		},
 		mobileNav: false,
-		currentUser:null
+		currentUser: null,
 	}),
 	methods: {
 		addPropertyMethod: function () {
 			alert("New property to be added here");
 		},
-		openNetlifyLoginModal:function(){
-			netlifyIdentity.open('login');
-			netlifyIdentity.on('login', user => {
-          this.currentUser = {
-            username: user.user_metadata.full_name,
-            email: user.email,
-            access_token: user.token.access_token,
-            expires_at: user.token.expires_at,
-            refresh_token: user.token.refresh_token,
-            token_type: user.token.token_type
-          };
-          this.updateUser({
-            currentUser: this.currentUser
-          });
-          netlifyIdentity.close();
-        });
-		}
+		openNetlifyLoginModal: function () {
+			netlifyIdentity.open("login");
+			netlifyIdentity.on("login", (user) => {
+				this.currentUser = {
+					username: user.user_metadata.full_name,
+					email: user.email,
+					access_token: user.token.access_token,
+					expires_at: user.token.expires_at,
+					refresh_token: user.token.refresh_token,
+					token_type: user.token.token_type,
+				};
+				this.updateUser({
+					currentUser: this.currentUser,
+				});
+				netlifyIdentity.close();
+			});
+		},
 	},
 	computed: {
-		...mapGetters(["pageNavigationList","logoImage"]),
+		...mapGetters("propertyStore",["pageNavigationList", "logoImage"]),
 	},
 };
 </script>
@@ -149,7 +150,7 @@ nav {
 .nav-item {
 	color: #999;
 	font-size: 1.7rem;
-	margin:0.5rem 0;
+	margin: 0.5rem 0;
 	text-transform: capitalize;
 	align-self: center;
 	&:hover {
@@ -201,15 +202,14 @@ nav {
 	}
 
 	.nav-item {
-	color: white;
-	font-size: 1.2rem;
-	text-transform: capitalize;
-	align-self: center;
-	&:hover {
-		color: $primary;
-		cursor: pointer;
+		color: white;
+		font-size: 1.2rem;
+		text-transform: capitalize;
+		align-self: center;
+		&:hover {
+			color: $primary;
+			cursor: pointer;
+		}
 	}
-}
-
 }
 </style>

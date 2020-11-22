@@ -82,10 +82,10 @@ export default {
 		],
 	}),
 	created() {
-		this.$store.dispatch("getPropertyList");
+		this.$store.dispatch("propertyStore/getPropertyList");
 	},
 	computed: {
-		...mapGetters(["propertyList"]),
+		...mapGetters("propertyStore",["propertyList"]),
 	},
 };
 </script>

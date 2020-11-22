@@ -117,7 +117,7 @@ export default {
 		}
 	}),
 	computed: {
-		...mapGetters(['logoImage','pageNavigationList']),
+		...mapGetters("propertyStore",["pageNavigationList", "logoImage"]),
 	},
 };
 </script>
