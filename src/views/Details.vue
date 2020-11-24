@@ -6,7 +6,7 @@
 			id="details"
 			class="custom-padding"
 		>
-			<!-- <div
+			<div
 				class="uk-position-relative uk-visible-toggle uk-light"
 				tabindex="-1"
 				uk-slideshow="ratio: 7:3; animation: push"
@@ -14,23 +14,9 @@
 
 				<ul class="uk-slideshow-items">
 
-					<li>
+					<li v-for="galleryImage in propertyDetail.gallery" v-bind:key="galleryImage">
 						<img
-							:src="require(`@/assets/Properties/${propertyDetail.gallery[0]}`)"
-							alt=""
-							uk-cover
-						>
-					</li>
-					<li>
-						<img
-							:src="require(`@/assets/Properties/${propertyDetail.gallery[1]}`)"
-							alt=""
-							uk-cover
-						>
-					</li>
-					<li>
-						<img
-							:src="require(`@/assets/Properties/${propertyDetail.gallery[2]}`)"
+							:src="require(`@/assets/Properties/${galleryImage}`)"
 							alt=""
 							uk-cover
 						>
@@ -49,33 +35,8 @@
 					uk-slidenav-next
 					uk-slideshow-item="next"
 				></a>
-			</div> -->
-
-			<!-- <div uk-slideshow>
-				<ul class="uk-slideshow-items">
-					<li>
-						<img
-							:src="require(`@/assets/Properties/${propertyDetail.gallery[0]}`)"
-							alt=""
-							uk-cover
-						>
-					</li>
-					<li>
-						<img
-							:src="require(`@/assets/Properties/${propertyDetail.gallery[1]}`)"
-							alt=""
-							uk-cover
-						>
-					</li>
-					<li>
-						<img
-							:src="require(`@/assets/Properties/${propertyDetail.gallery[2]}`)"
-							alt=""
-							uk-cover
-						>
-					</li>
-				</ul>
-			</div> -->
+			</div>
+			
 		</section>
 		<Footer />
 	</div>
