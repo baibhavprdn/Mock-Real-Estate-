@@ -3,15 +3,21 @@ import App from './App.vue';
 import router from './router';
 import Vuikit from 'vuikit';
 import VuikitIcons from '@vuikit/icons';
+import UIkit from 'uikit';
+import Icons from 'uikit/dist/js/uikit-icons'
 import axios from 'axios';
 import {Server} from 'miragejs';
 import {store} from '@/store/store.js';
 
 import '@vuikit/theme';
 
+import 'uikit/dist/css/uikit.min.css';
+
 Vue.use(Vuikit);
 Vue.use(VuikitIcons);
 Vue.use(axios);
+
+UIkit.use(Icons);
 
 Vue.config.productionTip = false; 
 
@@ -35,7 +41,8 @@ server.db.loadData({
       agentPhone: "+977 9851075136",
       adPostedDate: "7/5/2017",
       tags: ["For Sale", "House", "Bunglow"],
-      favourite: false
+      favourite: false,
+      gallery: ["details-aside5.jpg", "details-aside6.jpg","details-aside7.jpg"]
     },
     {
       Img: require("@/assets/property2.png"),
@@ -47,7 +54,8 @@ server.db.loadData({
       agentPhone: "+977 9851075136",
       adPostedDate: "7/5/2019",
       tags: ["For Rent", "House", "Bunglow"],
-      favourite: false
+      favourite: false,
+      gallery: ["details-aside5.jpg", "details-aside6.jpg", "details-aside7.jpg"]
     },
     {
       Img: require("@/assets/property3.png"),
@@ -59,7 +67,8 @@ server.db.loadData({
       agentPhone: "+977 9851075178",
       adPostedDate: "7/5/2019",
       tags: ["For Sale", "House", "Bunglow"],
-      favourite: false
+      favourite: false,
+      gallery: ["details-aside5.jpg", "details-aside6.jpg", "details-aside7.jpg"]
     },
     {
       Img: require("@/assets/property5.jpg"),
@@ -71,7 +80,8 @@ server.db.loadData({
       agentPhone: "+977 9851075136",
       adPostedDate: "7/5/2017",
       tags: ["For Sale", "House", "Bunglow"],
-      favourite: false
+      favourite: false,
+      gallery: ["details-aside5.jpg", "details-aside6.jpg", "details-aside7.jpg"]
     },
     {
       Img: require("@/assets/property6.jpg"),
@@ -83,7 +93,8 @@ server.db.loadData({
       agentPhone: "+977 9851075136",
       adPostedDate: "7/5/2019",
       tags: ["For Rent", "House", "Bunglow"],
-      favourite: false
+      favourite: false,
+      gallery: ["details-aside5.jpg", "details-aside6.jpg", "details-aside7.jpg"]
     },
     {
       Img: require("@/assets/property4.jpg"),
@@ -95,7 +106,8 @@ server.db.loadData({
       agentPhone: "+977 9851075178",
       adPostedDate: "7/5/2019",
       tags: ["For Sale", "House", "Bunglow"],
-      favourite: false
+      favourite: false,
+      gallery: ["details-aside5.jpg", "details-aside6.jpg", "details-aside7.jpg"]
     }
   ]
 });

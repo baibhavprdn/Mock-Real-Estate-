@@ -74,7 +74,6 @@ const getters = {
 	getPropertybyId: (state) => (id) => {
 		return state.propertyList.find(todo => todo.id === id);
 	}
-
 };
 
 const propertyStore= {

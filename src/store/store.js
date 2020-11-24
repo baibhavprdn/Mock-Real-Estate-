@@ -16,3 +16,7 @@ export const store= new Vuex.Store({
 		storage:window.sessionStorage
 	})]
 });
+
+
+
+
