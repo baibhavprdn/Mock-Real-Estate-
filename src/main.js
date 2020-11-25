@@ -6,8 +6,8 @@ import VuikitIcons from '@vuikit/icons';
 import UIkit from 'uikit';
 import Icons from 'uikit/dist/js/uikit-icons'
 import axios from 'axios';
-import {Server} from 'miragejs';
-import {store} from '@/store/store.js';
+import { Server } from 'miragejs';
+import { store } from '@/store/store.js';
 
 import '@vuikit/theme';
 
@@ -19,13 +19,13 @@ Vue.use(axios);
 
 UIkit.use(Icons);
 
-Vue.config.productionTip = false; 
+Vue.config.productionTip = false;
 
 // in order to use this.$http in all components
-Vue.prototype.$http=axios;
+Vue.prototype.$http = axios;
 
 const server = new Server({
-  timing:500
+  timing: 500
 });
 
 //using miragejs to handle api calls
@@ -42,7 +42,12 @@ server.db.loadData({
       adPostedDate: "7/5/2017",
       tags: ["For Sale", "House", "Bunglow"],
       favourite: false,
-      gallery: ["details-aside5.jpg", "details-aside6.jpg","details-aside7.jpg"]
+      gallery: ["details-aside5.jpg", "details-aside6.jpg", "details-aside7.jpg"],
+      bedroom: 3,
+      bathroom: 4,
+      garage: 1,
+      description: 'Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat. Duis autem vel eum iriure dolor in hendrerit in vulputate velit esse molestie consequat. Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.',
+      features: ['Hardwood Floors', 'Dishwasher', 'Laundry unit', 'Fire place', 'Hot water', 'Central heating']
     },
     {
       Img: require("@/assets/property2.png"),
@@ -55,7 +60,12 @@ server.db.loadData({
       adPostedDate: "7/5/2019",
       tags: ["For Rent", "House", "Bunglow"],
       favourite: false,
-      gallery: ["details-aside5.jpg", "details-aside6.jpg", "details-aside7.jpg"]
+      gallery: ["details-aside5.jpg", "details-aside6.jpg", "details-aside7.jpg"],
+      bedroom: 3,
+      bathroom: 4,
+      garage: 1,
+      description: 'Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat. Duis autem vel eum iriure dolor in hendrerit in vulputate velit esse molestie consequat. Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.',
+      features: ['Hardwood Floors', 'Dishwasher', 'Laundry unit', 'Fire place', 'Hot water', 'Central heating']
     },
     {
       Img: require("@/assets/property3.png"),
@@ -68,7 +78,12 @@ server.db.loadData({
       adPostedDate: "7/5/2019",
       tags: ["For Sale", "House", "Bunglow"],
       favourite: false,
-      gallery: ["details-aside5.jpg", "details-aside6.jpg", "details-aside7.jpg"]
+      gallery: ["details-aside5.jpg", "details-aside6.jpg", "details-aside7.jpg"],
+      bedroom: 3,
+      bathroom: 4,
+      garage: 1,
+      description: 'Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat. Duis autem vel eum iriure dolor in hendrerit in vulputate velit esse molestie consequat. Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.',
+      features: ['Hardwood Floors', 'Dishwasher', 'Laundry unit', 'Fire place', 'Hot water', 'Central heating']
     },
     {
       Img: require("@/assets/property5.jpg"),
@@ -81,7 +96,12 @@ server.db.loadData({
       adPostedDate: "7/5/2017",
       tags: ["For Sale", "House", "Bunglow"],
       favourite: false,
-      gallery: ["details-aside5.jpg", "details-aside6.jpg", "details-aside7.jpg"]
+      gallery: ["details-aside5.jpg", "details-aside6.jpg", "details-aside7.jpg"],
+      bedroom: 3,
+      bathroom: 4,
+      garage: 1,
+      description: 'Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat. Duis autem vel eum iriure dolor in hendrerit in vulputate velit esse molestie consequat. Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.',
+      features: ['Hardwood Floors', 'Dishwasher', 'Laundry unit', 'Fire place', 'Hot water', 'Central heating']
     },
     {
       Img: require("@/assets/property6.jpg"),
@@ -94,7 +114,12 @@ server.db.loadData({
       adPostedDate: "7/5/2019",
       tags: ["For Rent", "House", "Bunglow"],
       favourite: false,
-      gallery: ["details-aside5.jpg", "details-aside6.jpg", "details-aside7.jpg"]
+      gallery: ["details-aside5.jpg", "details-aside6.jpg", "details-aside7.jpg"],
+      bedroom: 3,
+      bathroom: 4,
+      garage: 1,
+      description: 'Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat. Duis autem vel eum iriure dolor in hendrerit in vulputate velit esse molestie consequat. Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.',
+      features: ['Hardwood Floors', 'Dishwasher', 'Laundry unit', 'Fire place', 'Hot water', 'Central heating']
     },
     {
       Img: require("@/assets/property4.jpg"),
@@ -107,12 +132,17 @@ server.db.loadData({
       adPostedDate: "7/5/2019",
       tags: ["For Sale", "House", "Bunglow"],
       favourite: false,
-      gallery: ["details-aside5.jpg", "details-aside6.jpg", "details-aside7.jpg"]
+      gallery: ["details-aside5.jpg", "details-aside6.jpg", "details-aside7.jpg"],
+      bedroom: 3,
+      bathroom: 4,
+      garage: 1,
+      description: 'Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat. Duis autem vel eum iriure dolor in hendrerit in vulputate velit esse molestie consequat. Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.',
+      features: ['Hardwood Floors', 'Dishwasher', 'Laundry unit', 'Fire place', 'Hot water', 'Central heating']
     }
   ]
 });
 
-server.get('/api/propertyList',(schema)=>{
+server.get('/api/propertyList', (schema) => {
   return schema.db.propertyList;
 });
 

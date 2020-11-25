@@ -49,7 +49,7 @@
 				></vk-icon>
 				{{property.location}}
 			</p>
-			<h4 class="price">{{priceValue}} </h4>
+			<h4 class="price">{{priceValue}}</h4>
 			<div class="agent-info">
 				<div>
 					<vk-icon
