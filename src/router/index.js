@@ -1,8 +1,8 @@
 import Vue from 'vue';
 import VueRouter from 'vue-router';
-import Home from '../views/Main.vue';
-import About from '../views/About.vue';
-import Details from '../views/Details.vue';
+// import Home from '../views/Main.vue';
+// import About from '../views/About.vue';
+// import Details from '../views/Details.vue';
 
 Vue.use(VueRouter);
 
@@ -10,7 +10,7 @@ const routes = [
   {
     path: '/',
     name: 'Home',
-    component: Home
+    component: ()=>import('../views/Main.vue')
   },
   {
     path: '/about',
@@ -23,12 +23,12 @@ const routes = [
   {
     path:'/contact',
     name:'Contact',
-    component: About
+    component: () => import ('../views/About.vue')
   },
   {
     path:'/details/:id',
     name:'Property detail',
-    component: Details,
+    component: ()=> import ('../views/Details.vue')
   }
 ];
 
