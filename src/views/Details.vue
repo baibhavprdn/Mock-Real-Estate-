@@ -42,9 +42,7 @@
 
 			<div uk-lightbox class="lightbox">
 				<a
-					v-for="galleryImage in propertyDetail.gallery"
-					v-bind:key="galleryImage"
-					:href="require(`@/assets/Properties/${galleryImage}`)"
+					:href="require(`@/assets/Properties/${propertyDetail.gallery[0]}`)"
 					data-caption="Caption"
 				>
 					<img
