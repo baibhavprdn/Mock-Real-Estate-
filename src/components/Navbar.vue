@@ -2,12 +2,21 @@
 	<vk-navbar class="custom-padding-sides">
 		<vk-navbar-nav class="uk-width-expand uk-flex-between desktop">
 			<vk-navbar-logo>
-				<img
-					:src="require('@/assets/logo.png')"
-					:alt="logoImage.description"
-					uk-img
-					class="uk-responsive-height"
-				/>
+				<picture>
+					<source
+						srcset="@/assets/webp/logo.webp"
+						type="image/webp"
+						uk-img
+						class="uk-responsive-height"
+					>
+					<img
+						:src="require('@/assets/logo.png')"
+						:alt="logoImage.description"
+						uk-img
+						class="uk-responsive-height"
+					/>
+				</picture>
+
 			</vk-navbar-logo>
 			<router-link
 				class="nav-item"
@@ -135,6 +144,18 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+picture {
+	display: flex;
+	max-height:100%;
+	img {
+		object-fit: contain;
+	}
+}
+
+.uk-logo{
+	width:10rem;
+}
+
 nav {
 	height: 4rem;
 }

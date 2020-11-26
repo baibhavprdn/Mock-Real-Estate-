@@ -4,7 +4,7 @@ import router from './router';
 import Vuikit from 'vuikit';
 import VuikitIcons from '@vuikit/icons';
 import UIkit from 'uikit';
-import Icons from 'uikit/dist/js/uikit-icons'
+import Icons from 'uikit/dist/js/uikit-icons';
 import axios from 'axios';
 import { Server } from 'miragejs';
 import { store } from '@/store/store.js';
@@ -32,7 +32,8 @@ const server = new Server({
 server.db.loadData({
   propertyList: [
     {
-      Img: require("@/assets/property1.png"),
+      Img:require("@/assets/webp/property1.webp"),
+      ImgFallback: require("@/assets/property1.png"),
       title: "House with swimming pool for sale",
       location: "Imadol seetal height, 02 Lalitpur Nepal",
       price: 4500000,
@@ -50,7 +51,8 @@ server.db.loadData({
       features: ['Hardwood Floors', 'Dishwasher', 'Laundry unit', 'Fire place', 'Hot water', 'Central heating']
     },
     {
-      Img: require("@/assets/property2.png"),
+      Img: require("@/assets/webp/property2.webp"),
+      ImgFallback: require("@/assets/property2.png"),
       title: "Bunglow house in Bhaisipati for rent",
       location: "Bhaisipati, 02 Lalitpur Nepal",
       price: 150000,
@@ -68,7 +70,8 @@ server.db.loadData({
       features: ['Hardwood Floors', 'Dishwasher', 'Laundry unit', 'Fire place', 'Hot water', 'Central heating']
     },
     {
-      Img: require("@/assets/property3.png"),
+      Img: require("@/assets/webp/property3.webp"),
+      ImgFallback: require("@/assets/property3.png"),
       title: "Bunglow house with backyard for sale",
       location: "Bhaisipati, 02 Lalitpur Nepal",
       price: 45000000,
@@ -86,7 +89,8 @@ server.db.loadData({
       features: ['Hardwood Floors', 'Dishwasher', 'Laundry unit', 'Fire place', 'Hot water', 'Central heating']
     },
     {
-      Img: require("@/assets/property5.jpg"),
+      Img: require("@/assets/webp/property5.webp"),
+      ImgFallback: require("@/assets/property5.jpg"),
       title: "House with swimming pool for sale",
       location: "Imadol seetal height, 02 Lalitpur Nepal",
       price: 4500000,
@@ -104,7 +108,8 @@ server.db.loadData({
       features: ['Hardwood Floors', 'Dishwasher', 'Laundry unit', 'Fire place', 'Hot water', 'Central heating']
     },
     {
-      Img: require("@/assets/property6.jpg"),
+      Img: require("@/assets/webp/property6.webp"),
+      ImgFallback: require("@/assets/property6.jpg"),
       title: "Bunglow house in Bhaisipati for rent",
       location: "Bhaisipati, 02 Lalitpur Nepal",
       price: 150000,
@@ -122,7 +127,8 @@ server.db.loadData({
       features: ['Hardwood Floors', 'Dishwasher', 'Laundry unit', 'Fire place', 'Hot water', 'Central heating']
     },
     {
-      Img: require("@/assets/property4.jpg"),
+      Img: require("@/assets/webp/property4.webp"),
+      ImgFallback: require("@/assets/property4.jpg"),
       title: "Bunglow house with backyard for sale",
       location: "Bhaisipati, 02 Lalitpur Nepal",
       price: 45000000,

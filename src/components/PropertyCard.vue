@@ -4,11 +4,19 @@
 			class="img-wrapper"
 			v-on:click="showPropertyDetails()" 
 		>
-			<img
-				:src="property.Img"
+			<picture>
+				<source
+						:srcset="property.Img"
+						type="image/webp"
+						uk-img
+						class="uk-responsive-height"
+					>
+				<img
+				:src="property.ImgFallback"
 				alt="House for sale"
 				:class="{portrait:portrait}" @load="imageOrientation(property.Img)"
 			/>
+			</picture>
 			<div class="tags-wrapper">
 				<span
 					class="uk-badge"

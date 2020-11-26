@@ -93,7 +93,7 @@ export default {
 <style lang="scss" scoped>
 #header {
 	position: relative;
-	background: url(../assets/main-banner.png);
+	background: url(../assets/webp/main-banner.webp);
 	height: 100vh;
 	background-size: cover;
 
