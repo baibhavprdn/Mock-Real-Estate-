@@ -49,7 +49,7 @@
 				></vk-icon>
 				{{property.location}}
 			</p>
-			<h4 class="price">{{priceValue}}</h4>
+			<h3 class="price">{{priceValue}}</h3>
 			<div class="agent-info">
 				<div>
 					<vk-icon
@@ -252,7 +252,7 @@ export default {
 
 		.price {
 			margin: 0.5rem 0;
-			color: $primary-dark;
+			color: $primary-darkish;
 			font-weight: 500;
 		}
 
@@ -270,7 +270,7 @@ export default {
 			margin-bottom: 0.5rem;
 
 			@media (min-width: 768px) {
-				margin-right: 2rem;
+				margin-right: 1rem;
 				margin-bottom: 0;
 			}
 		}

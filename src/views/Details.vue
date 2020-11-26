@@ -7,7 +7,7 @@
 			class="custom-padding"
 		>
 			<div
-				class="uk-position-relative uk-visible-toggle uk-light"
+				class="uk-position-relative uk-visible-toggle uk-light slideshow"
 				tabindex="-1"
 				uk-slideshow="ratio: 7:3"
 			>
@@ -38,6 +38,19 @@
 					uk-slidenav-next
 					uk-slideshow-item="next"
 				></a>
+			</div>
+
+			<div uk-lightbox class="lightbox">
+				<a
+					v-for="galleryImage in propertyDetail.gallery"
+					v-bind:key="galleryImage"
+					:href="require(`@/assets/Properties/${galleryImage}`)"
+					data-caption="Caption"
+				>
+					<img
+						:src="require(`@/assets/Properties/${propertyDetail.gallery[0]}`)"	
+						alt=""
+					></a>
 			</div>
 
 			<div
@@ -151,6 +164,20 @@ export default {
 	margin: 0;
 }
 
+.slideshow{
+	display:none;
+	@media (min-width:768px){
+		display:block;
+	}
+}
+
+.lightbox{
+	display:block;
+	@media (min-width:768px){
+		display:none;
+	}
+}
+
 .img-wrapper {
 	position: relative;
 
@@ -163,12 +190,14 @@ export default {
 .top-row-info {
 	display: flex;
 	justify-content: space-between;
+	flex-wrap: wrap;
 }
 
 .rooms {
 	color: #333;
 	font-weight: bold;
 	align-items: center;
+	flex-wrap: wrap;
 	.icon img {
 		height: 1.5rem;
 		width: auto;
