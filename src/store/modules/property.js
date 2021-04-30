@@ -28,7 +28,7 @@ const state = {
 		},
 		{
 			name: "Listing",
-			route: "/contact",
+			route: "/listing",
 			description: "Listing",
 			active: false,
 		}
@@ -56,6 +56,7 @@ const mutations = {
 };
 
 const actions = {
+	//context.commit arguement destructuring
 	getPropertyList({ commit }) {
 		this._vm.$http
 			.get("/api/propertyList")

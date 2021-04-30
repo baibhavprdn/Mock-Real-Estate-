@@ -36,6 +36,7 @@
 		>
 			<h2 class="section-header"><span>Latest</span> Properties</h2>
 			<h5 class="section-subheader">Listing the hottest properties around you</h5>
+			<!-- <LazyImage :source="propertyList[0]"/> -->
 			<div id="property-list-grid">
 				<PropertyCard
 					v-for="propertyItem in propertyList"
@@ -52,6 +53,7 @@
 import Navbar from "@/components/Navbar.vue"
 import PropertyCard from "@/components/PropertyCard.vue"
 import Footer from "@/components/Footer.vue"
+// import LazyImage from '@/components/LazyImage';
 import { mapGetters } from "vuex"
 
 export default {
@@ -59,7 +61,8 @@ export default {
 	components: {
 		Navbar,
 		PropertyCard,
-		Footer
+		Footer,
+		// LazyImage
 	},
 	data: () => ({
 		filterItems: [

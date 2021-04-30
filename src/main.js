@@ -17,7 +17,7 @@ Vue.use(Vuikit);
 Vue.use(VuikitIcons);
 Vue.use(axios);
 
-UIkit.use(Icons);
+UIkit.use(Icons); 
 
 Vue.config.productionTip = false;
 
